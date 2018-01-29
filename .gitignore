@@ -4,6 +4,9 @@ project.lock.json
 .DS_Store
 *.pyc
 
+#TestResults
+[Rr]esults
+
 # Visual Studio Code
 .vscode
 
