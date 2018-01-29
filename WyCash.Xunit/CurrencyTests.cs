@@ -8,7 +8,7 @@ namespace WyCash.Xunit
     public class CurrencyTests
     {
         [Fact]
-        public void TestCurrencyMultiplication()
+        public void TestDollarMultiplication()
         {
             ICurrency fiveDollars = new Dollar(5);
             Assert.Equal(new Dollar(5), fiveDollars);
@@ -17,10 +17,18 @@ namespace WyCash.Xunit
         }
 
         [Fact]
-        public void TestCurrencyEquality(){
+        public void TestDollarEquality(){
             ICurrency fiveDollars = new Dollar(5);
             ICurrency anotherFiveDollars = new Dollar(5);
             Assert.True(fiveDollars.Equals(anotherFiveDollars));
+        }
+
+        [Fact]
+        public void TestFrancsMultiplication()
+        {
+            ICurrency fiveFrancs = new Franc(5);
+            Assert.Equal(new Franc(10), fiveFrancs.MultiplyBy(2));
+            Assert.Equal(new Franc(15), fiveFrancs.MultiplyBy(3));
         }
     }
 }

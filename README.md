@@ -21,6 +21,7 @@ Create a batch script  - runtests.* - in WyCash.Xunit directory
 * Windows batch script - runtests.cmd
 ```cmd
 @echo off
+dotnet test -t
 dotnet xunit -appveyor -xml .\Results\TestResults.xml
 ```
 * Linux bash script runtests.sh

@@ -8,8 +8,7 @@ namespace WyCash.Lib
 
         public decimal Amount { get; }
 
-        public bool Equals(ICurrency other) => ((Dollar)other).Amount
-                    .Equals(this.Amount);
+        public bool Equals(ICurrency other) => ((Dollar)other).Amount.Equals(this.Amount);
 
         public ICurrency MultiplyBy(int multiplier) 
         { 
