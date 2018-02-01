@@ -30,5 +30,6 @@ namespace WyCash.Xunit
             Assert.Equal(new Franc(10), fiveFrancs.MultiplyBy(2));
             Assert.Equal(new Franc(15), fiveFrancs.MultiplyBy(3));
         }
+        
     }
 }
