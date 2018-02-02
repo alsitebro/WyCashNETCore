@@ -1,19 +1,14 @@
 namespace WyCash.Lib
 {
-    public class Franc : ICurrency
+    public class Franc : Money
     {
-        public Franc(decimal amount)
+        public Franc(decimal amount) : base(amount)
         {
-            this.Amount = amount;
+            this.amount = amount;
         }
 
-        public decimal Amount { get; }
+        public decimal Amount { get { return amount; } }
 
-        public bool Equals(ICurrency other) => ((Franc)other).Amount.Equals(this.Amount);
-
-        public ICurrency MultiplyBy(int multiplier)
-        {
-           return new Franc(Amount * multiplier);
-        }
+        
     }
 }
