@@ -11,9 +11,9 @@ namespace WyCash.Xunit
         public void TestAllEquality()
         {
             Assert.True(new Dollar(5).Equals(new Dollar(5)));
-            Assert.True(new Dollar(5).Equals(new Dollar(6)));
+            Assert.True(new Dollar(6).Equals(new Dollar(6)));
             Assert.True(new Franc(5).Equals(new Franc(5)));
-            Assert.True(new Franc(5).Equals(new Franc(5)));
+            Assert.True(new Franc(6).Equals(new Franc(6)));
         }
 
         [Fact]

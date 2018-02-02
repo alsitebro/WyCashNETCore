@@ -1,7 +1,7 @@
 * $5 + 10 CHf = $10 if rate is 2:1
 * ~~$5 * 2 = $10~~
 * ~~Make "amount" private~~
-* Dollar side effects?
+* ~~Dollar side effects?~~
 * Money rounding?
 * ~~Equals()~~
 * GetHashCode()
@@ -9,5 +9,6 @@
 * Equal object
 * ~~5 CHf * 2 = 10 CHf~~
 * Dollar/Franc duplication
-* Common equality
+* ~~Common equality~~
 * Common multiplication
+* Compare Francs with Dollars
