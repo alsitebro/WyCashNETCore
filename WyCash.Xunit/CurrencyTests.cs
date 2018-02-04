@@ -1,43 +1,48 @@
 using System;
-using Xunit;
-
 using WyCash.Lib;
+using Xunit;
 
 namespace WyCash.Xunit
 {
     public class CurrencyTests
     {
         [Fact]
-        public void TestAllEquality()
+        public void Equality()
         {
-            Assert.True(new Dollar(5).Equals(new Dollar(5)));
-            Assert.True(new Dollar(6).Equals(new Dollar(6)));
-            Assert.True(new Franc(5).Equals(new Franc(5)));
-            Assert.True(new Franc(6).Equals(new Franc(6)));
+            Assert.True(Money.GetDollars(5).Equals(Money.GetDollars(5)));
+            Assert.False(Money.GetDollars(5).Equals(Money.GetDollars(6)));
+            Assert.True(Money.GetFrancs(5).Equals(Money.GetFrancs(5)));
+            Assert.False(Money.GetFrancs(5).Equals(Money.GetFrancs(6)));
         }
 
         [Fact]
-        public void TestDollarMultiplication()
+        public void DollarMultiplication()
         {
-            Money fiveDollars = new Dollar(5);
-            Assert.Equal(new Dollar(5), fiveDollars);
-            Assert.Equal(new Dollar(10), fiveDollars.MultiplyBy(2));
-            Assert.Equal(new Dollar(15), fiveDollars.MultiplyBy(3));
+            Money fiveDollars = Money.GetDollars(5);
+            Assert.Equal(Money.GetDollars(5), fiveDollars);
+            Assert.Equal(Money.GetDollars(10), fiveDollars.MultiplyBy(2));
+            Assert.Equal(Money.GetDollars(15), fiveDollars.MultiplyBy(3));
         }
 
         [Fact]
-        public void TestDollarEquality(){
-            Money fiveDollars = new Dollar(5);
-            Money anotherFiveDollars = new Dollar(5);
-            Assert.True(fiveDollars.Equals(anotherFiveDollars));
+        public void FrancsMultiplication()
+        {
+            Money fiveFrancs = Money.GetFrancs(5);
+            Assert.Equal(Money.GetFrancs(10), fiveFrancs.MultiplyBy(2));
+            Assert.Equal(Money.GetFrancs(15), fiveFrancs.MultiplyBy(3));
         }
 
         [Fact]
-        public void TestFrancsMultiplication()
+        public void CrossCurrencyEquality()
         {
-            ICurrency fiveFrancs = new Franc(5);
-            Assert.Equal(new Franc(10), fiveFrancs.MultiplyBy(2));
-            Assert.Equal(new Franc(15), fiveFrancs.MultiplyBy(3));
+            Assert.False(Money.GetFrancs(5).Equals(Money.GetDollars(5)));
+        }
+
+        [Fact]
+        public void Currency()
+        {
+            Assert.Equal("USD", Money.GetDollars(1).GetCurrency());
+            Assert.Equal("CHf", Money.GetFrancs(1).GetCurrency());
         }
     }
 }

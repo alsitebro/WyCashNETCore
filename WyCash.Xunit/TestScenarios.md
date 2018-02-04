@@ -11,4 +11,6 @@
 * Dollar/Franc duplication
 * ~~Common equality~~
 * Common multiplication
-* Compare Francs with Dollars
+* ~~Compare Francs to Dollars~~
+* ~~Currency?~~
+* Delete FrancsMutliplication test

@@ -1,31 +1,41 @@
 using System;
+using System.Collections.Generic;
 
 namespace WyCash.Lib
 {
-    public class Money : ICurrency
+    public abstract class Money
     {
         protected decimal _amount;
-        public Money(decimal amount)
+        protected string _currency;
+
+        public Money(decimal amount, string currency)
         {
             _amount = amount;
+            _currency = currency;
         }
 
         public decimal Amount { get => _amount; }
 
-        public ICurrency MultiplyBy(int multiplier)
-        {
-            return new Money(_amount * multiplier);
-        }
-
         public override bool Equals(object obj)
         {
             Money money = (Money) obj;
-            return _amount.Equals(money.Amount);
+            return _amount.Equals(money.Amount) 
+                && this.GetType().Equals(money.GetType());
         }
 
-        public override int GetHashCode()
+        public override int GetHashCode() => this.GetHashCode();
+
+        public static Money GetFrancs(decimal amount)
         {
-            throw new NotImplementedException();
+            return new Franc(amount, "CHf");
         }
+
+        public static Money GetDollars(decimal amount)
+        {
+            return new Dollar(amount, "USD");
+        }
+
+        public abstract Money MultiplyBy(int multiplier);
+        public string GetCurrency() => _currency;
     }
 }
