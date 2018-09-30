@@ -39,4 +39,10 @@ namespace WyCash.Lib
         
         public Currency GetCurrency() => _currency;
     }
+
+       public enum Currency 
+       {
+            USD = 1,
+            CHf
+        }
 }
