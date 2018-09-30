@@ -9,10 +9,10 @@ namespace WyCash.Xunit
         [Fact]
         public void Equality()
         {
-            Assert.True(Money.GetDollars(5).Equals(Money.GetDollars(5)));
-            Assert.False(Money.GetDollars(5).Equals(Money.GetDollars(6)));
-            Assert.True(Money.GetFrancs(5).Equals(Money.GetFrancs(5)));
-            Assert.False(Money.GetFrancs(5).Equals(Money.GetFrancs(6)));
+            Assert.True(Money.GetDollars(5).Equals(new Dollar(5)));
+            Assert.False(Money.GetDollars(5).Equals(new Dollar(6)));
+            Assert.True(Money.GetFrancs(5).Equals(new Franc(5)));
+            Assert.False(Money.GetFrancs(5).Equals(new Franc(6)));
         }
 
         [Fact]
@@ -39,10 +39,10 @@ namespace WyCash.Xunit
         }
 
         [Fact]
-        public void Currency()
+        public void CheckCurrency()
         {
-            Assert.Equal("USD", Money.GetDollars(1).GetCurrency());
-            Assert.Equal("CHf", Money.GetFrancs(1).GetCurrency());
+            Assert.Equal(Currency.USD, Money.GetDollars(1).GetCurrency());
+            Assert.Equal(Currency.CHf, Money.GetFrancs(1).GetCurrency());
         }
     }
 }
