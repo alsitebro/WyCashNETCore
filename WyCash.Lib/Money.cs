@@ -36,6 +36,7 @@ namespace WyCash.Lib
         }
 
         public abstract Money MultiplyBy(int multiplier);
+        
         public Currency GetCurrency() => _currency;
     }
 }
