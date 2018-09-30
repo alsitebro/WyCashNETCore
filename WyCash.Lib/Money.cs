@@ -6,9 +6,9 @@ namespace WyCash.Lib
     public abstract class Money
     {
         protected decimal _amount;
-        protected string _currency;
+        protected Currency _currency;
 
-        public Money(decimal amount, string currency)
+        public Money(decimal amount, Currency currency)
         {
             _amount = amount;
             _currency = currency;
@@ -27,15 +27,15 @@ namespace WyCash.Lib
 
         public static Money GetFrancs(decimal amount)
         {
-            return new Franc(amount, "CHf");
+            return new Franc(amount);
         }
 
         public static Money GetDollars(decimal amount)
         {
-            return new Dollar(amount, "USD");
+            return new Dollar(amount);
         }
 
         public abstract Money MultiplyBy(int multiplier);
-        public string GetCurrency() => _currency;
+        public Currency GetCurrency() => _currency;
     }
 }

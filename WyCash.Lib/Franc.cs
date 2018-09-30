@@ -2,8 +2,8 @@ namespace WyCash.Lib
 {
     public class Franc : Money
     {
-        public Franc(decimal amount, string currency)
-        : base(amount, currency){}
+        public Franc(decimal amount)
+        : base(amount, Currency.CHf){}
 
         public override Money MultiplyBy(int multiplier)
         {

@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace WyCash.Lib 
+namespace WyCash.Lib
 {
     public class Dollar : Money
     {
-        public Dollar(decimal amount, string currency) 
-        : base(amount, currency){}
+        public Dollar(decimal amount) 
+        : base(amount, Currency.USD){}
 
         public override Money MultiplyBy(int multiplier)
         {
